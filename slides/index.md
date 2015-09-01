@@ -85,7 +85,7 @@ Steffen Forkmann
 
 ### Getting Started
 
-* Tutorial avaliable at [fsharp.github.io/FAKE/](http://fsharp.github.io/FAKE/gettingstarted.html)
+* Tutorial available at [fsharp.github.io/FAKE/](http://fsharp.github.io/FAKE/gettingstarted.html)
  
 ---
 
