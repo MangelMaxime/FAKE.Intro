@@ -369,7 +369,7 @@ or
 
 - Dependency manager for all .NET and Mono projects
 - Plays well with NuGet packages and [nuget.org](http://www.nuget.org)
-- Allows to reference source code files from HTTP sources and GitHub
+- Allows to reference code files from HTTP and GitHub
 
 <br /><br />
 <img style="border: none" src="images/paket-logo.png" alt="Paket logo" />
@@ -390,11 +390,11 @@ or
 ### Why another package manager?
 
 - NuGet has no global view of your dependencies
-- `packages.config` files are spread over all project folders
+- `packages.config` files are spread over all projects
 - As a sample [MassTransit](https://github.com/MassTransit/MassTransit):
 
 
-<br /><br />
+<br />
 <img style="border: none" src="images/MassTransit.png" alt="packages.config everywhere" />
 
 ***
@@ -402,7 +402,7 @@ or
 ### Why another package manager?
 
 - NuGet has no concept of transitive dependencies
-- Which packages do we really need?
+
 
 
     <?xml version="1.0" encoding="utf-8"?>
@@ -562,8 +562,18 @@ or
 
     $ paket update
 
-- Recomputes `paket.lock` based on `paket.dependencies`
+- Recomputes `paket.lock`
 - Updates all versions to the latest
+- Runs `paket install`
+
+***
+
+### Updating a single package
+
+
+    $ paket update nuget [PACKAGENAME]
+
+- Updates only the given package and it's dependencies
 - Runs `paket install`
 
 ***
@@ -662,7 +672,7 @@ or
 
 - For F# Type Providers you need a couple of helper files
 - It was painful to keep these up-to-date
-- Reference F# Type Provider files in `paket.dependencies`:
+- Reference Type Provider files in `paket.dependencies`:
 
 
     github fsprojects/FSharp.TypeProviders.StarterPack src/ProvidedTypes.fsi
@@ -693,12 +703,39 @@ or
 
 ### Paket.VisualStudio
 
-- Alpha version of [VisualStudio plugin](https://github.com/hmemcpy/Paket.VisualStudio)
-- Takes contributions
+- [VisualStudio plugin](https://github.com/hmemcpy/Paket.VisualStudio)
 
 
-<br /><br />
+<br />
 <img style="border: none" src="images/Paket.VisualStudio.png" alt="Paket.VisualStudio" />
+
+***
+
+### Paket.XamarinStudio
+
+- [Xamarin Studio plugin](http://addins.monodevelop.com/)
+
+
+<br />
+<img style="border: none" src="images/paket-xamarin-studio.png" alt="Paket.XamarinStudio" />
+
+***
+
+### Paket.Atom
+
+-  Availabe in [Atom's plugin manager](https://atom.io/packages/paket)
+
+<br />
+<img style="border: none" src="images/paket-add-atom.gif" alt="Paket.Atom" />
+
+***
+
+### Paket.Emacs
+
+- Project site: [https://github.com/zzdtri/paket.el](https://github.com/zzdtri/paket.el)
+
+<br />
+<img style="border: none" src="images/paket-add-emacs.gif" alt="Paket.Emacs" />
 
 ***
 
@@ -715,13 +752,13 @@ or
 
 ### ProjectScaffold
 
-- allows a simple one step build and release process
-- works with most build servers
-- compiles the application and runs all test projects
-- synchronizes AssemblyInfo files prior to compilation
-- generates API docs based on XML documentation
-- generates documentation based on Markdown files
-- generates and pushes NuGet packages
+- Allows a simple one step build and release process
+- Works with most build servers
+- Compiles the application and runs all test projects
+- Synchronizes AssemblyInfo files prior to compilation
+- Generates API docs based on XML documentation
+- Generates documentation based on Markdown files
+- Generates and pushes NuGet packages
 
 ***
 
