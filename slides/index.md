@@ -6,24 +6,39 @@
 
 ***
 
-## FAKE - F# Make
+## FAKE + Paket
+<br />
+#### Essential tools for every .NET developer
 
 
-![FAKE](images/logo.png)
+<br />
+<img style="border: none" src="images/logo.png" alt="FAKE logo" />
+<img style="border: none" src="images/paket-logo.png" alt="Paket logo" />
 
 Steffen Forkmann
- 
+
 [@sforkmann](http://www.twitter.com/sforkmann)
 
 ***
 
-### Build tools for .NET
+### What is FAKE?
+
+- Build tool for .NET and mono
+- Plays well with existing ecosystem
+- Simple domain-specific language integrated in F#
+
+<br /><br />
+<img style="border: none" src="images/logo.png" alt="FAKE logo" />
+
+***
+
+### Other build tools for .NET
 
 - MSBuild
 - NAnt
+- UpperCut
 - PSake (Powershell)
 - AlbaCore (Rake)
-- UpperCut
 - BauBuild, Cake (Roslyn)
 
 ***
@@ -32,29 +47,29 @@ Steffen Forkmann
 
 ![Over 120 commiters in March](images/Commiters.png)
 
----
+***
 
 ### Why should I use FAKE?
 
 ![Over 137 commiters in April](images/Commiters2.png)
 
----
+***
 
 ### Why should I use FAKE?
 
 ![Over 135000 downloads in March](images/Nuget.png)
 
----
+***
 
 ### Why should I use FAKE?
 
 ![Over 150000 downloads in April](images/Nuget2.png)
 
----
+***
 
 ### Why should I use FAKE?
 
-![Very good docs](images/Docs.png)
+<img style="border: none" src="images/Docs.png" alt="FAKE documentation" />
 
 ***
 
@@ -67,8 +82,8 @@ Steffen Forkmann
 * CHECK24 Vergleichsportal GmbH
 * Olo
 * ...
- 
----
+
+***
 
 ### Who uses FAKE?
 
@@ -79,15 +94,15 @@ Steffen Forkmann
 * Paket
 * Akka.net
 * NSubstitute
-* ... 
-  
+* ...
+
 ***
 
 ### Getting Started
 
 * Tutorial available at [fsharp.github.io/FAKE/](http://fsharp.github.io/FAKE/gettingstarted.html)
- 
----
+
+***
 
 ### Running FAKE
 
@@ -105,49 +120,49 @@ or
     .paket/paket.exe restore
     packages/FAKE/tools/Fake.exe build.fsx
     pause
-    
----
+
+***
 
 ### Hello world
 
     // include Fake lib
     #r @"packages/FAKE/tools/FakeLib.dll"
     open Fake
-    
+
     // Default target
     Target "Default" (fun _ ->
         trace "Hello World from FAKE"
     )
-    
+
     // start build
     RunTargetOrDefault "Default"
 
----
+***
 
 ### Hello world
 
 ![After download](images/afterdownload.png)
 
----
+***
 
 ### Cleaning up
 
     let buildDir = "./build/"
-    
+
     // Targets
     Target "Clean" (fun _ ->
         CleanDir buildDir
     )
-    
+
     // Dependencies
     "Clean"
       ==> "Default"
-      
----
+
+***
 
 ### Cleaning up
 
-    
+
 ![After Clean](images/afterclean.png)
 
 ***
@@ -159,17 +174,17 @@ or
           |> MSBuildRelease buildDir "Build"
           |> Log "AppBuild-Output: "
     )
-    
+
     // Dependencies
     "Clean"
       ==> "BuildApp"
       ==> "Default"
-      
----
+
+***
 
 ### Compiling the application
 
-    
+
 ![After Compile](images/aftercompile.png)
 
 ***
@@ -181,16 +196,16 @@ or
           |> MSBuildDebug testDir "Build"
           |> Log "TestBuild-Output: "
     )
-    
+
     "Clean"
       ==> "BuildApp"
       ==> "BuildTest"
       ==> "Default"
-      
----
+
+***
 
 ### Running tests
-   
+
     Target "Test" (fun _ ->
         !! (testDir </> "NUnit.Test.*.dll")
           |> NUnit (fun p ->
@@ -200,24 +215,24 @@ or
                  OutputFile = testDir </> "TestResults.xml" })
     )
 
-    
+
     "Clean"
       ==> "BuildApp"
       ==> "BuildTest"  
       ==> "Test"
       ==> "Default"
 
----
+***
 
 ### Running tests
 
-    
+
 ![After Compile](images/alltestsgreen.png)
-      
----
+
+***
 
 ### Running tests (in parallel)
-   
+
     Target "Test" (fun _ ->
         !! (testDir </> "NUnit.Test.*.dll")
           |> NUnitParallel (fun p ->
@@ -226,23 +241,23 @@ or
                  OutputFile = testDir </> "TestResults.xml" })
     )
 
-    
+
     "Clean"
       ==> "BuildApp"
       ==> "BuildTest"  
       ==> "Test"
       ==> "Default"
-      
----
+
+***
 
 ### Running tests (xUnit)
-   
+
     Target "Test" (fun _ ->
         !! (testDir </> "xUnit.Test.*.dll")
           |> xUnit2 (fun p ->
               {p with OutputDir = testDir })
     )
-    
+
     "Clean"
       ==> "BuildApp"
       ==> "BuildTest"  
@@ -252,24 +267,24 @@ or
 ***
 
 ### Adding FxCop
-   
+
     Target "FxCop" (fun () ->  
-        !! (buildDir </> "**/*.dll") 
-        ++ (buildDir </> "**/*.exe") 
-        |> FxCop 
-            (fun p -> 
-                {p with ReportFileName = 
+        !! (buildDir </> "**/*.dll")
+        ++ (buildDir </> "**/*.exe")
+        |> FxCop
+            (fun p ->
+                {p with ReportFileName =
                   testDir </> "FXCopResults.xml" })
     )
-      
+
 ***
 
 ### Create AssemblyInfo files
-   
+
 
     open Fake.AssemblyInfoFile
 
-    CreateCSharpAssemblyInfo 
+    CreateCSharpAssemblyInfo
         "./src/app/Calculator/Properties/AssemblyInfo.cs"
         [Attribute.Title "Calculator Command line tool"
          Attribute.Description "Sample project for FAKE"
@@ -277,12 +292,12 @@ or
          Attribute.Product "Calculator"
          Attribute.Version version
          Attribute.FileVersion version]
-         
+
 ***
-         
+
 ### Creating NuGet packages
 
-    
+
     NuGet (fun p ->
         {p with
             Authors = authors
@@ -293,18 +308,18 @@ or
             WorkingDir = packagingDir
             Version = buildVersion
             AccessKey = myAccesskey
-            Publish = true }) 
+            Publish = true })
             "myProject.nuspec"
-         
-      
----
-         
+
+
+***
+
 ### Creating NuGet packages
 
     [lang=xml]
     <?xml version="1.0" encoding="utf-8"?>
     <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">    
+      <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
         <id>@project@</id>
         <version>@build.number@</version>
         <authors>@authors@</authors>
@@ -316,31 +331,31 @@ or
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>@description@</description>
         <releaseNotes>@releaseNotes@</releaseNotes>
-        <copyright>Copyright GitHub 2013</copyright>    
+        <copyright>Copyright GitHub 2013</copyright>
         <tags>GitHub API Octokit</tags>
         @dependencies@
         @references@
       </metadata>
       @files@
     </package>
-    
+
 ***
-         
+
 ### Creating NuGet packages (using Paket)
-    
-      Target "NuGet" (fun _ ->    
-          Paket.Pack (fun p -> 
-              { p with 
+
+      Target "NuGet" (fun _ ->
+          Paket.Pack (fun p ->
+              { p with
                   Version = release.NugetVersion
                   ReleaseNotes = toLines release.Notes })
       )
-      
+
       Target "PublishNuGet" (fun _ ->
-          Paket.Push (fun p -> 
-              { p with 
-                  WorkingDir = tempDir }) 
+          Paket.Push (fun p ->
+              { p with
+                  WorkingDir = tempDir })
       )
-      
+
 ***
 
 # DEMO
@@ -357,7 +372,7 @@ or
 - Allows to reference source code files from HTTP sources and GitHub
 
 <br /><br />
-<img style="border: none" src="images/paket-logo.png" alt="Paket logo" />                                                              
+<img style="border: none" src="images/paket-logo.png" alt="Paket logo" />
 
 ***
 
@@ -368,9 +383,9 @@ or
 - [nuget.org](https://www.nuget.org/) is etablished package feed
 
 <br /><br />
-<img style="border: none" src="images/nuget.png" alt="Nuget logo" /> 
+<img style="border: none" src="images/nuget3.png" alt="NuGet logo" />
 
-*** 
+***
 
 ### Why another package manager?
 
@@ -380,12 +395,12 @@ or
 
 
 <br /><br />
-<img style="border: none" src="images/MassTransit.png" alt="packages.config everywhere" /> 
+<img style="border: none" src="images/MassTransit.png" alt="packages.config everywhere" />
 
-*** 
+***
 
 ### Why another package manager?
-    
+
 - NuGet has no concept of transitive dependencies
 - Which packages do we really need?
 
@@ -411,7 +426,7 @@ or
       <package id="RProvider" version="1.0.13" targetFramework="net45" />
     </packages>
 
-*** 
+***
 
 ### Why another package manager?
 
@@ -442,7 +457,7 @@ or
 ### Why don't you contribute to NuGet?
 
 - NuGet is open source, but managed by Microsoft
-- Most changes are breaking (e.g. version number in path) 
+- Most of changes are breaking (e.g. no version no. in path)
 - NuGet team made clear they won't accept these changes
 
 ***
@@ -451,7 +466,7 @@ or
 
 - Integrate well into the existing NuGet ecosystem
 - Make things work with minimal tooling (plain text files)
-- Make it work on all platforms
+- Make it work cross-platform
 - Automate everything
 - Create a nice community
 
@@ -459,13 +474,10 @@ or
 
 ### Paket file structure
 
-- `paket.dependencies`: Global definition of dependencies
+- `paket.dependencies`: Global dependency definition
 - `paket.lock`: List of used versions for all dependencies
 - `paket.references`: Dependency definition per project
-
-
-<br /><br />
-<img style="border: none" src="images/structure.png" alt="Basic structure" /> 
+- `paket.template`: Package definition for new packages
 
 ***
 
@@ -476,12 +488,12 @@ or
 
 
      source https://nuget.org/api/v2
-           
+
      nuget Newtonsoft.Json         // any version
      nuget UnionArgParser >= 0.7   // x >= 0.7
-     nuget log4net ~> 1.2          // 1.2 <= x < 2     
+     nuget log4net ~> 1.2          // 1.2 <= x < 2
      nuget NUnit prerelease        // any version incl. prereleases
-    
+
 
 ***
 
@@ -541,7 +553,7 @@ or
 - Lists all dependencies that have newer versions available:
 
 <br /><br />
-<img style="border: none" src="images/paket-outdated.png" alt="Paket outdated" /> 
+<img style="border: none" src="images/paket-outdated.png" alt="Paket outdated" />
 
 ***
 
@@ -551,7 +563,7 @@ or
     $ paket update
 
 - Recomputes `paket.lock` based on `paket.dependencies`
-- Updates all versions to the latest 
+- Updates all versions to the latest
 - Runs `paket install`
 
 ***
@@ -605,29 +617,29 @@ or
 ### Source code dependencies
 
 - Allow to reference plain source code files
-- Available for: 
+- Available for:
   - [GitHub](https://www.github.com)
   - [GitHub gists](https://gist.github.com/)
   - HTTP resources
-  
+
 ***
 
 ### Source code dependencies
 #### GitHub sample (1)
 
-- Add dependency to the `paket.dependencies` file 
+- Add dependency to the `paket.dependencies` file
 
 
     github forki/FsUnit FsUnit.fs
-    
-- Also add a file reference to a `paket.references` file 
+
+- Also add a file reference to a `paket.references` file
 
 
     File:FsUnit.fs
 
 ***
 
-### Source code dependencies 
+### Source code dependencies
 #### GitHub sample (2)
 
 - `paket install` will add a new section to `paket.lock`:
@@ -645,7 +657,7 @@ or
 
 ***
 
-### Source code dependencies 
+### Source code dependencies
 #### Use case - "Type Provider definition"
 
 - For F# Type Providers you need a couple of helper files
@@ -662,8 +674,8 @@ or
 
     File:ProvidedTypes.fsi
     File:ProvidedTypes.fs
-    File:DebugProvidedTypes.fs 
-       
+    File:DebugProvidedTypes.fs
+
 
 ***
 
@@ -675,7 +687,7 @@ or
 - Visit the [online documentation](http://fsprojects.github.io/Paket/)
 - Create a [GitHub issue](https://github.com/fsprojects/Paket/issues)
 - Follow [PaketManager](https://twitter.com/PaketManager) on Twitter
- 
+
 
 ***
 
@@ -686,20 +698,20 @@ or
 
 
 <br /><br />
-<img style="border: none" src="images/Paket.VisualStudio.png" alt="Paket.VisualStudio" /> 
+<img style="border: none" src="images/Paket.VisualStudio.png" alt="Paket.VisualStudio" />
 
 ***
 
 ### ProjectScaffold
 
 - Used to initialialize a prototypical .NET/mono solution
-- Fully featured Paket + FAKE build process 
+- Fully featured Paket + FAKE build process
 - http://fsprojects.github.io/ProjectScaffold/
 
 <br /> <br />
-<img src="images/projectscaffold-logo.png" alt="ProjectScaffold" /> 
+<img src="images/projectscaffold-logo.png" alt="ProjectScaffold" />
 
----
+***
 
 ### ProjectScaffold
 
