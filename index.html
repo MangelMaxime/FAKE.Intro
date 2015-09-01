@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>FAKE - F# Make</title>
+    <title>FAKE and Paket</title>
     <meta name="description" content="Beautiful builds with F#">
     <meta name="author" content="Steffen Forkmann">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -46,17 +46,25 @@
 </head>
 <body>
     <div class="reveal">
-        <div class="tip" id="fs1">namespace Microsoft</div>
-<div class="tip" id="fs2">Multiple items<br />type Async<br />static member AsBeginEnd : computation:(&#39;Arg -&gt; Async&lt;&#39;T&gt;) -&gt; (&#39;Arg * AsyncCallback * obj -&gt; IAsyncResult) * (IAsyncResult -&gt; &#39;T) * (IAsyncResult -&gt; unit)<br />static member AwaitEvent : event:IEvent&lt;&#39;Del,&#39;T&gt; * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt; (requires delegate and &#39;Del :&gt; Delegate)<br />static member AwaitIAsyncResult : iar:IAsyncResult * ?millisecondsTimeout:int -&gt; Async&lt;bool&gt;<br />static member AwaitTask : task:Task&lt;&#39;T&gt; -&gt; Async&lt;&#39;T&gt;<br />static member AwaitWaitHandle : waitHandle:WaitHandle * ?millisecondsTimeout:int -&gt; Async&lt;bool&gt;<br />static member CancelDefaultToken : unit -&gt; unit<br />static member Catch : computation:Async&lt;&#39;T&gt; -&gt; Async&lt;Choice&lt;&#39;T,exn&gt;&gt;<br />static member FromBeginEnd : beginAction:(AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromBeginEnd : arg:&#39;Arg1 * beginAction:(&#39;Arg1 * AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromBeginEnd : arg1:&#39;Arg1 * arg2:&#39;Arg2 * beginAction:(&#39;Arg1 * &#39;Arg2 * AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromBeginEnd : arg1:&#39;Arg1 * arg2:&#39;Arg2 * arg3:&#39;Arg3 * beginAction:(&#39;Arg1 * &#39;Arg2 * &#39;Arg3 * AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromContinuations : callback:((&#39;T -&gt; unit) * (exn -&gt; unit) * (OperationCanceledException -&gt; unit) -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member Ignore : computation:Async&lt;&#39;T&gt; -&gt; Async&lt;unit&gt;<br />static member OnCancel : interruption:(unit -&gt; unit) -&gt; Async&lt;IDisposable&gt;<br />static member Parallel : computations:seq&lt;Async&lt;&#39;T&gt;&gt; -&gt; Async&lt;&#39;T []&gt;<br />static member RunSynchronously : computation:Async&lt;&#39;T&gt; * ?timeout:int * ?cancellationToken:CancellationToken -&gt; &#39;T<br />static member Sleep : millisecondsDueTime:int -&gt; Async&lt;unit&gt;<br />static member Start : computation:Async&lt;unit&gt; * ?cancellationToken:CancellationToken -&gt; unit<br />static member StartAsTask : computation:Async&lt;&#39;T&gt; * ?taskCreationOptions:TaskCreationOptions * ?cancellationToken:CancellationToken -&gt; Task&lt;&#39;T&gt;<br />static member StartChild : computation:Async&lt;&#39;T&gt; * ?millisecondsTimeout:int -&gt; Async&lt;Async&lt;&#39;T&gt;&gt;<br />static member StartChildAsTask : computation:Async&lt;&#39;T&gt; * ?taskCreationOptions:TaskCreationOptions -&gt; Async&lt;Task&lt;&#39;T&gt;&gt;<br />static member StartImmediate : computation:Async&lt;unit&gt; * ?cancellationToken:CancellationToken -&gt; unit<br />static member StartWithContinuations : computation:Async&lt;&#39;T&gt; * continuation:(&#39;T -&gt; unit) * exceptionContinuation:(exn -&gt; unit) * cancellationContinuation:(OperationCanceledException -&gt; unit) * ?cancellationToken:CancellationToken -&gt; unit<br />static member SwitchToContext : syncContext:SynchronizationContext -&gt; Async&lt;unit&gt;<br />static member SwitchToNewThread : unit -&gt; Async&lt;unit&gt;<br />static member SwitchToThreadPool : unit -&gt; Async&lt;unit&gt;<br />static member TryCancelled : computation:Async&lt;&#39;T&gt; * compensation:(OperationCanceledException -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member CancellationToken : Async&lt;CancellationToken&gt;<br />static member DefaultCancellationToken : CancellationToken<br /><br />Full name: Microsoft.FSharp.Control.Async<br /><br />--------------------<br />type Async&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Control.Async&lt;_&gt;</div>
-<div class="tip" id="fs3">val fsi : Compiler.Interactive.InteractiveSession<br /><br />Full name: Microsoft.FSharp.Compiler.Interactive.Settings.fsi</div>
+        <div class="tip" id="fs1">val id : x:&#39;T -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.Operators.id</div>
+<div class="tip" id="fs2">namespace Microsoft</div>
+<div class="tip" id="fs3">Multiple items<br />type Async<br />static member AsBeginEnd : computation:(&#39;Arg -&gt; Async&lt;&#39;T&gt;) -&gt; (&#39;Arg * AsyncCallback * obj -&gt; IAsyncResult) * (IAsyncResult -&gt; &#39;T) * (IAsyncResult -&gt; unit)<br />static member AwaitEvent : event:IEvent&lt;&#39;Del,&#39;T&gt; * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt; (requires delegate and &#39;Del :&gt; Delegate)<br />static member AwaitIAsyncResult : iar:IAsyncResult * ?millisecondsTimeout:int -&gt; Async&lt;bool&gt;<br />static member AwaitTask : task:Task -&gt; Async&lt;unit&gt;<br />static member AwaitTask : task:Task&lt;&#39;T&gt; -&gt; Async&lt;&#39;T&gt;<br />static member AwaitWaitHandle : waitHandle:WaitHandle * ?millisecondsTimeout:int -&gt; Async&lt;bool&gt;<br />static member CancelDefaultToken : unit -&gt; unit<br />static member Catch : computation:Async&lt;&#39;T&gt; -&gt; Async&lt;Choice&lt;&#39;T,exn&gt;&gt;<br />static member FromBeginEnd : beginAction:(AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromBeginEnd : arg:&#39;Arg1 * beginAction:(&#39;Arg1 * AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromBeginEnd : arg1:&#39;Arg1 * arg2:&#39;Arg2 * beginAction:(&#39;Arg1 * &#39;Arg2 * AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromBeginEnd : arg1:&#39;Arg1 * arg2:&#39;Arg2 * arg3:&#39;Arg3 * beginAction:(&#39;Arg1 * &#39;Arg2 * &#39;Arg3 * AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromContinuations : callback:((&#39;T -&gt; unit) * (exn -&gt; unit) * (OperationCanceledException -&gt; unit) -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member Ignore : computation:Async&lt;&#39;T&gt; -&gt; Async&lt;unit&gt;<br />static member OnCancel : interruption:(unit -&gt; unit) -&gt; Async&lt;IDisposable&gt;<br />static member Parallel : computations:seq&lt;Async&lt;&#39;T&gt;&gt; -&gt; Async&lt;&#39;T []&gt;<br />static member RunSynchronously : computation:Async&lt;&#39;T&gt; * ?timeout:int * ?cancellationToken:CancellationToken -&gt; &#39;T<br />static member Sleep : millisecondsDueTime:int -&gt; Async&lt;unit&gt;<br />static member Start : computation:Async&lt;unit&gt; * ?cancellationToken:CancellationToken -&gt; unit<br />static member StartAsTask : computation:Async&lt;&#39;T&gt; * ?taskCreationOptions:TaskCreationOptions * ?cancellationToken:CancellationToken -&gt; Task&lt;&#39;T&gt;<br />static member StartChild : computation:Async&lt;&#39;T&gt; * ?millisecondsTimeout:int -&gt; Async&lt;Async&lt;&#39;T&gt;&gt;<br />static member StartChildAsTask : computation:Async&lt;&#39;T&gt; * ?taskCreationOptions:TaskCreationOptions -&gt; Async&lt;Task&lt;&#39;T&gt;&gt;<br />static member StartImmediate : computation:Async&lt;unit&gt; * ?cancellationToken:CancellationToken -&gt; unit<br />static member StartWithContinuations : computation:Async&lt;&#39;T&gt; * continuation:(&#39;T -&gt; unit) * exceptionContinuation:(exn -&gt; unit) * cancellationContinuation:(OperationCanceledException -&gt; unit) * ?cancellationToken:CancellationToken -&gt; unit<br />static member SwitchToContext : syncContext:SynchronizationContext -&gt; Async&lt;unit&gt;<br />static member SwitchToNewThread : unit -&gt; Async&lt;unit&gt;<br />static member SwitchToThreadPool : unit -&gt; Async&lt;unit&gt;<br />static member TryCancelled : computation:Async&lt;&#39;T&gt; * compensation:(OperationCanceledException -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member CancellationToken : Async&lt;CancellationToken&gt;<br />static member DefaultCancellationToken : CancellationToken<br /><br />Full name: Microsoft.FSharp.Control.Async<br /><br />--------------------<br />type Async&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Control.Async&lt;_&gt;</div>
+<div class="tip" id="fs4">namespace Microsoft.FSharp</div>
+<div class="tip" id="fs5">val fsi : Compiler.Interactive.InteractiveSession<br /><br />Full name: Microsoft.FSharp.Compiler.Interactive.Settings.fsi</div>
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
             <section >
 
-<h2>FAKE - F# Make</h2>
+<h2>FAKE + Paket</h2>
 
-<p><img src="images/logo.png" alt="FAKE" /></p>
+<br />
+
+<h4>Essential tools for every .NET developer</h4>
+
+<br />
+<img style="border: none" src="images/logo.png" alt="FAKE logo" />
+<img style="border: none" src="images/paket-logo.png" alt="Paket logo" />
 
 <p>Steffen Forkmann</p>
 
@@ -66,20 +74,33 @@
 
 <section >
 
-<h3>Build tools for .NET</h3>
+<h3>What is FAKE?</h3>
 
 <ul>
-<li>MSBuild</li>
-<li>NAnt</li>
-<li>PSake (Powershell)</li>
-<li>AlbaCore (Rake)</li>
-<li>UpperCut</li>
-<li>BauBuild, Cake (Roslyn)</li>
+<li>Build tool for .NET and mono</li>
+<li>Plays well with existing ecosystem</li>
+<li>Simple domain-specific language integrated in F#</li>
 </ul>
+
+<br /><br />
+<img style="border: none" src="images/logo.png" alt="FAKE logo" />
 
 </section>
 
 <section >
+
+<h3>Other build tools for .NET</h3>
+
+<ul>
+<li>MSBuild</li>
+<li>NAnt</li>
+<li>UpperCut</li>
+<li>PSake (Powershell)</li>
+<li>AlbaCore (Rake)</li>
+<li>BauBuild, Cake (Roslyn)</li>
+</ul>
+
+</section>
 
 <section >
 
@@ -89,7 +110,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Why should I use FAKE?</h3>
 
@@ -97,7 +118,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Why should I use FAKE?</h3>
 
@@ -105,7 +126,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Why should I use FAKE?</h3>
 
@@ -113,17 +134,13 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Why should I use FAKE?</h3>
 
-<p><img src="images/Docs.png" alt="Very good docs" /></p>
+<img style="border: none" src="images/Docs.png" alt="FAKE documentation" />
 
 </section>
-
-</section>
-
-<section >
 
 <section >
 
@@ -141,7 +158,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Who uses FAKE?</h3>
 
@@ -158,21 +175,17 @@
 
 </section>
 
-</section>
-
-<section >
-
 <section >
 
 <h3>Getting Started</h3>
 
 <ul>
-<li>Tutorial avaliable at <a href="http://fsharp.github.io/FAKE/gettingstarted.html">fsharp.github.io/FAKE/</a></li>
+<li>Tutorial available at <a href="http://fsharp.github.io/FAKE/gettingstarted.html">fsharp.github.io/FAKE/</a></li>
 </ul>
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Running FAKE</h3>
 
@@ -210,7 +223,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Hello world</h3>
 
@@ -243,7 +256,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Hello world</h3>
 
@@ -251,7 +264,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Cleaning up</h3>
 
@@ -282,17 +295,13 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Cleaning up</h3>
 
 <p><img src="images/afterclean.png" alt="After Clean" /></p>
 
 </section>
-
-</section>
-
-<section >
 
 <section >
 
@@ -325,17 +334,13 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Compiling the application</h3>
 
 <p><img src="images/aftercompile.png" alt="After Compile" /></p>
 
 </section>
-
-</section>
-
-<section >
 
 <section >
 
@@ -368,7 +373,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Running tests</h3>
 
@@ -409,7 +414,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Running tests</h3>
 
@@ -417,7 +422,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Running tests (in parallel)</h3>
 
@@ -456,7 +461,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Running tests (xUnit)</h3>
 
@@ -489,8 +494,6 @@
 
 </section>
 
-</section>
-
 <section >
 
 <h3>Adding FxCop</h3>
@@ -505,11 +508,11 @@
 <span class="l">8: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">Target</span> <span class="s">&quot;FxCop&quot;</span> (<span class="k">fun</span> () <span class="k">-&gt;</span>  
-    <span class="o">!!</span> (<span class="i">buildDir</span> <span class="o">&lt;/&gt;</span> <span class="s">&quot;**/*.dll&quot;</span>) 
-    <span class="o">++</span> (<span class="i">buildDir</span> <span class="o">&lt;/&gt;</span> <span class="s">&quot;**/*.exe&quot;</span>) 
-    <span class="o">|&gt;</span> <span class="i">FxCop</span> 
-        (<span class="k">fun</span> <span class="i">p</span> <span class="k">-&gt;</span> 
-            {<span class="i">p</span> <span class="k">with</span> <span class="i">ReportFileName</span> <span class="o">=</span> 
+    <span class="o">!!</span> (<span class="i">buildDir</span> <span class="o">&lt;/&gt;</span> <span class="s">&quot;**/*.dll&quot;</span>)
+    <span class="o">++</span> (<span class="i">buildDir</span> <span class="o">&lt;/&gt;</span> <span class="s">&quot;**/*.exe&quot;</span>)
+    <span class="o">|&gt;</span> <span class="i">FxCop</span>
+        (<span class="k">fun</span> <span class="i">p</span> <span class="k">-&gt;</span>
+            {<span class="i">p</span> <span class="k">with</span> <span class="i">ReportFileName</span> <span class="o">=</span>
               <span class="i">testDir</span> <span class="o">&lt;/&gt;</span> <span class="s">&quot;FXCopResults.xml&quot;</span> })
 )
 </code></pre></td>
@@ -535,7 +538,7 @@
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span class="i">Fake</span><span class="o">.</span><span class="i">AssemblyInfoFile</span>
 
-<span class="i">CreateCSharpAssemblyInfo</span> 
+<span class="i">CreateCSharpAssemblyInfo</span>
     <span class="s">&quot;./src/app/Calculator/Properties/AssemblyInfo.cs&quot;</span>
     [<span class="i">Attribute</span><span class="o">.</span><span class="i">Title</span> <span class="s">&quot;Calculator Command line tool&quot;</span>
      <span class="i">Attribute</span><span class="o">.</span><span class="i">Description</span> <span class="s">&quot;Sample project for FAKE&quot;</span>
@@ -548,8 +551,6 @@
 </table>
 
 </section>
-
-<section >
 
 <section >
 
@@ -578,7 +579,7 @@
         <span class="i">WorkingDir</span> <span class="o">=</span> <span class="i">packagingDir</span>
         <span class="i">Version</span> <span class="o">=</span> <span class="i">buildVersion</span>
         <span class="i">AccessKey</span> <span class="o">=</span> <span class="i">myAccesskey</span>
-        <span class="i">Publish</span> <span class="o">=</span> <span class="k">true</span> }) 
+        <span class="i">Publish</span> <span class="o">=</span> <span class="k">true</span> })
         <span class="s">&quot;myProject.nuspec&quot;</span>
 </code></pre></td>
 </tr>
@@ -586,7 +587,7 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>Creating NuGet packages</h3>
 
@@ -614,7 +615,7 @@
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="xml"><span class="prep">&lt;?</span>xml version=<span class="s">"1.0"</span> encoding=<span class="s">"utf-8"</span><span class="prep">?&gt;</span>
 <span class="k">&lt;</span><span class="i">package</span> <span class="o">xmlns:xsi</span><span class="k">="http://www.w3.org/2001/XMLSchema-instance"</span> <span class="o">xmlns:xsd</span><span class="k">="http://www.w3.org/2001/XMLSchema"</span><span class="k">&gt;</span>
-  <span class="k">&lt;</span><span class="i">metadata</span> <span class="o">xmlns</span><span class="k">="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"</span><span class="k">&gt;</span>    
+  <span class="k">&lt;</span><span class="i">metadata</span> <span class="o">xmlns</span><span class="k">="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"</span><span class="k">&gt;</span>
     <span class="k">&lt;</span><span class="i">id</span><span class="k">&gt;</span>@project@<span class="k">&lt;/</span><span class="i">id</span><span class="k">&gt;</span>
     <span class="k">&lt;</span><span class="i">version</span><span class="k">&gt;</span>@build.number@<span class="k">&lt;/</span><span class="i">version</span><span class="k">&gt;</span>
     <span class="k">&lt;</span><span class="i">authors</span><span class="k">&gt;</span>@authors@<span class="k">&lt;/</span><span class="i">authors</span><span class="k">&gt;</span>
@@ -626,7 +627,7 @@
     <span class="k">&lt;</span><span class="i">requireLicenseAcceptance</span><span class="k">&gt;</span>false<span class="k">&lt;/</span><span class="i">requireLicenseAcceptance</span><span class="k">&gt;</span>
     <span class="k">&lt;</span><span class="i">description</span><span class="k">&gt;</span>@description@<span class="k">&lt;/</span><span class="i">description</span><span class="k">&gt;</span>
     <span class="k">&lt;</span><span class="i">releaseNotes</span><span class="k">&gt;</span>@releaseNotes@<span class="k">&lt;/</span><span class="i">releaseNotes</span><span class="k">&gt;</span>
-    <span class="k">&lt;</span><span class="i">copyright</span><span class="k">&gt;</span>Copyright GitHub 2013<span class="k">&lt;/</span><span class="i">copyright</span><span class="k">&gt;</span>    
+    <span class="k">&lt;</span><span class="i">copyright</span><span class="k">&gt;</span>Copyright GitHub 2013<span class="k">&lt;/</span><span class="i">copyright</span><span class="k">&gt;</span>
     <span class="k">&lt;</span><span class="i">tags</span><span class="k">&gt;</span>GitHub API Octokit<span class="k">&lt;/</span><span class="i">tags</span><span class="k">&gt;</span>
     @dependencies@
     @references@
@@ -634,8 +635,6 @@
   @files@
 <span class="k">&lt;/</span><span class="i">package</span><span class="k">&gt;</span>
 </code></pre></td></tr></table>
-
-</section>
 
 </section>
 
@@ -656,17 +655,17 @@
 <span class="l">11: </span>
 <span class="l">12: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">  <span class="i">Target</span> <span class="s">&quot;NuGet&quot;</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>    
-      <span class="i">Paket</span><span class="o">.</span><span class="i">Pack</span> (<span class="k">fun</span> <span class="i">p</span> <span class="k">-&gt;</span> 
-          { <span class="i">p</span> <span class="k">with</span> 
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">  <span class="i">Target</span> <span class="s">&quot;NuGet&quot;</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>
+      <span class="i">Paket</span><span class="o">.</span><span class="i">Pack</span> (<span class="k">fun</span> <span class="i">p</span> <span class="k">-&gt;</span>
+          { <span class="i">p</span> <span class="k">with</span>
               <span class="i">Version</span> <span class="o">=</span> <span class="i">release</span><span class="o">.</span><span class="i">NugetVersion</span>
               <span class="i">ReleaseNotes</span> <span class="o">=</span> <span class="i">toLines</span> <span class="i">release</span><span class="o">.</span><span class="i">Notes</span> })
   )
 
   <span class="i">Target</span> <span class="s">&quot;PublishNuGet&quot;</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>
-      <span class="i">Paket</span><span class="o">.</span><span class="i">Push</span> (<span class="k">fun</span> <span class="i">p</span> <span class="k">-&gt;</span> 
-          { <span class="i">p</span> <span class="k">with</span> 
-              <span class="i">WorkingDir</span> <span class="o">=</span> <span class="i">tempDir</span> }) 
+      <span class="i">Paket</span><span class="o">.</span><span class="i">Push</span> (<span class="k">fun</span> <span class="i">p</span> <span class="k">-&gt;</span>
+          { <span class="i">p</span> <span class="k">with</span>
+              <span class="i">WorkingDir</span> <span class="o">=</span> <span class="i">tempDir</span> })
   )
 </code></pre></td>
 </tr>
@@ -684,8 +683,6 @@
 
 <section >
 
-<section >
-
 <h3>What is Paket?</h3>
 
 <ul>
@@ -695,11 +692,97 @@
 </ul>
 
 <br /><br />
-<img style="border: none" src="images/paket-logo.png" alt="Paket logo" /> 
+<img style="border: none" src="images/paket-logo.png" alt="Paket logo" />
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
+
+<h3>Why another package manager?</h3>
+
+<ul>
+<li>.NET ecosystem has already NuGet</li>
+<li>Integrated in Visual Studio and Xamarin Studio</li>
+<li><a href="https://www.nuget.org/">nuget.org</a> is etablished package feed</li>
+</ul>
+
+<br /><br />
+<img style="border: none" src="images/nuget3.png" alt="NuGet logo" />
+
+</section>
+
+<section >
+
+<h3>Why another package manager?</h3>
+
+<ul>
+<li>NuGet has no global view of your dependencies</li>
+<li><code>packages.config</code> files are spread over all project folders</li>
+<li>As a sample <a href="https://github.com/MassTransit/MassTransit">MassTransit</a>:</li>
+</ul>
+
+<br /><br />
+<img style="border: none" src="images/MassTransit.png" alt="packages.config everywhere" />
+
+</section>
+
+<section >
+
+<h3>Why another package manager?</h3>
+
+<ul>
+<li>NuGet has no concept of transitive dependencies</li>
+<li>Which packages do we really need?</li>
+</ul>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="o">&lt;?</span><span class="i">xml</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span> <span class="i">encoding</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="o">?&gt;</span>
+<span class="o">&lt;</span><span class="i">packages</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">id</span><span class="o">=</span><span class="s">&quot;Accord&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;2.14.0&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 2)" onmouseover="showTip(event, 'fs1', 2)" class="i">id</span><span class="o">=</span><span class="s">&quot;Accord.Math&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;2.14.0&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="i">id</span><span class="o">=</span><span class="s">&quot;Accord.Neuro&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;2.14.0&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 4)" onmouseover="showTip(event, 'fs1', 4)" class="i">id</span><span class="o">=</span><span class="s">&quot;AForge&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;2.2.5&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 5)" onmouseover="showTip(event, 'fs1', 5)" class="i">id</span><span class="o">=</span><span class="s">&quot;AForge.Genetic&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;2.2.5&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 6)" onmouseover="showTip(event, 'fs1', 6)" class="i">id</span><span class="o">=</span><span class="s">&quot;AForge.Math&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;2.2.5&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 7)" onmouseover="showTip(event, 'fs1', 7)" class="i">id</span><span class="o">=</span><span class="s">&quot;AForge.Neuro&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;2.2.5&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 8)" onmouseover="showTip(event, 'fs1', 8)" class="i">id</span><span class="o">=</span><span class="s">&quot;Deedle&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;1.0.1&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 9)" onmouseover="showTip(event, 'fs1', 9)" class="i">id</span><span class="o">=</span><span class="s">&quot;Deedle.RPlugin&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;1.0.1&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 10)" onmouseover="showTip(event, 'fs1', 10)" class="i">id</span><span class="o">=</span><span class="s">&quot;FSharp.Charting&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;0.90.6&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 11)" onmouseover="showTip(event, 'fs1', 11)" class="i">id</span><span class="o">=</span><span class="s">&quot;FSharp.Data&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;2.0.9&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 12)" onmouseover="showTip(event, 'fs1', 12)" class="i">id</span><span class="o">=</span><span class="s">&quot;FsLab&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;0.0.19&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 13)" onmouseover="showTip(event, 'fs1', 13)" class="i">id</span><span class="o">=</span><span class="s">&quot;MathNet.Numerics&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;3.0.0&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 14)" onmouseover="showTip(event, 'fs1', 14)" class="i">id</span><span class="o">=</span><span class="s">&quot;MathNet.Numerics.FSharp&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;3.0.0&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 15)" onmouseover="showTip(event, 'fs1', 15)" class="i">id</span><span class="o">=</span><span class="s">&quot;R.NET.Community&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;1.5.15&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 16)" onmouseover="showTip(event, 'fs1', 16)" class="i">id</span><span class="o">=</span><span class="s">&quot;R.NET.Community.FSharp&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;0.1.8&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="i">package</span> <span onmouseout="hideTip(event, 'fs1', 17)" onmouseover="showTip(event, 'fs1', 17)" class="i">id</span><span class="o">=</span><span class="s">&quot;RProvider&quot;</span> <span class="i">version</span><span class="o">=</span><span class="s">&quot;1.0.13&quot;</span> <span class="i">targetFramework</span><span class="o">=</span><span class="s">&quot;net45&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="i">packages</span><span class="o">&gt;</span>
+</code></pre></td>
+</tr>
+</table>
+
+</section>
+
+<section >
 
 <h3>Why another package manager?</h3>
 
@@ -733,40 +816,57 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
+
+<h3>Why another package manager?</h3>
+
+<ul>
+<li>NuGet doesn't allow to reference plain source files</li>
+<li>If you want to reuse code you have to create a package</li>
+</ul>
+
+</section>
+
+<section >
+
+<h3>Why don't you contribute to NuGet?</h3>
+
+<ul>
+<li>NuGet is open source, but managed by Microsoft</li>
+<li>Most of changes are breaking (e.g. no version no. in path)</li>
+<li>NuGet team made clear they won't accept these changes</li>
+</ul>
+
+</section>
+
+<section >
 
 <h3>Paket - Project Principles</h3>
 
 <ul>
-<li>Integrate into the existing NuGet ecosystem</li>
+<li>Integrate well into the existing NuGet ecosystem</li>
 <li>Make things work with minimal tooling (plain text files)</li>
-<li>Make it work on all platforms</li>
+<li>Make it work cross-platform</li>
 <li>Automate everything</li>
 <li>Create a nice community</li>
 </ul>
 
 </section>
 
-</section>
-
-<section >
-
 <section >
 
 <h3>Paket file structure</h3>
 
 <ul>
-<li><code>paket.dependencies</code>: Global definition</li>
-<li><code>paket.lock</code>: Concrete versions for all dependencies</li>
+<li><code>paket.dependencies</code>: Global dependency definition</li>
+<li><code>paket.lock</code>: List of used versions for all dependencies</li>
 <li><code>paket.references</code>: Dependency definition per project</li>
+<li><code>paket.template</code>: Package definition for new packages</li>
 </ul>
-
-<br /><br />
-<img style="border: none" src="images/structure.png" alt="Basic structure" /> 
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>paket.dependencies</h3>
 
@@ -784,22 +884,24 @@
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"> <span class="i">source</span> <span class="i">https</span><span class="o">:</span><span class="c">//nuget.org/api/v2</span>
 
- <span class="i">nuget</span> <span class="i">Newtonsoft</span><span class="o">.</span><span class="i">Json</span>       <span class="c">// any version</span>
- <span class="i">nuget</span> <span class="i">UnionArgParser</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">0.7</span> <span class="c">// x &gt;= 0.7</span>
- <span class="i">nuget</span> <span class="i">log4net</span> <span class="o">~&gt;</span> <span class="n">1.2</span>        <span class="c">// 1.2 &lt;= x &lt; 2     </span>
- <span class="i">nuget</span> <span class="i">NUnit</span> <span class="i">prerelease</span>      <span class="c">// any version incl. prereleases</span>
+ <span class="i">nuget</span> <span class="i">Newtonsoft</span><span class="o">.</span><span class="i">Json</span>         <span class="c">// any version</span>
+ <span class="i">nuget</span> <span class="i">UnionArgParser</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">0.7</span>   <span class="c">// x &gt;= 0.7</span>
+ <span class="i">nuget</span> <span class="i">log4net</span> <span class="o">~&gt;</span> <span class="n">1.2</span>          <span class="c">// 1.2 &lt;= x &lt; 2</span>
+ <span class="i">nuget</span> <span class="i">NUnit</span> <span class="i">prerelease</span>        <span class="c">// any version incl. prereleases</span>
 </code></pre></td>
 </tr>
 </table>
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>paket.lock</h3>
 
 <ul>
 <li>Graph of used versions for all dependencies</li>
+<li>Compareable to a unified view of all <code>packages.config</code></li>
+<li>Automatically computed from <code>paket.dependencies</code>:</li>
 </ul>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
@@ -820,14 +922,14 @@
   <span class="i">remote</span><span class="o">:</span> <span class="i">https</span><span class="o">:</span><span class="c">//nuget.org/api/v2</span>
   <span class="i">specs</span><span class="o">:</span>
     <span class="i">log4net</span> (<span class="n">1.2</span><span class="o">.</span><span class="n">10</span>)
-    <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span> (<span class="n">1.1</span><span class="o">.</span><span class="n">9</span>)
-      <span onmouseout="hideTip(event, 'fs1', 2)" onmouseover="showTip(event, 'fs1', 2)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span><span class="o">.</span><span class="i">Build</span> (<span class="o">&gt;</span><span class="o">=</span> <span class="n">1.0</span><span class="o">.</span><span class="n">14</span>)
-    <span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 4)" onmouseover="showTip(event, 'fs2', 4)" class="i">Async</span> (<span class="n">1.0</span><span class="o">.</span><span class="n">168</span>) <span class="o">-</span> <span class="o">&gt;</span><span class="o">=</span> <span class="i">net40</span> <span class="o">&lt;</span> <span class="i">net45</span>
-      <span onmouseout="hideTip(event, 'fs1', 5)" onmouseover="showTip(event, 'fs1', 5)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span> (<span class="o">&gt;</span><span class="o">=</span> <span class="n">1.1</span><span class="o">.</span><span class="n">8</span>)
-    <span onmouseout="hideTip(event, 'fs1', 6)" onmouseover="showTip(event, 'fs1', 6)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span><span class="o">.</span><span class="i">Build</span> (<span class="n">1.0</span><span class="o">.</span><span class="n">21</span>)
+    <span onmouseout="hideTip(event, 'fs2', 18)" onmouseover="showTip(event, 'fs2', 18)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span> (<span class="n">1.1</span><span class="o">.</span><span class="n">9</span>)
+      <span onmouseout="hideTip(event, 'fs2', 19)" onmouseover="showTip(event, 'fs2', 19)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span><span class="o">.</span><span class="i">Build</span> (<span class="o">&gt;</span><span class="o">=</span> <span class="n">1.0</span><span class="o">.</span><span class="n">14</span>)
+    <span onmouseout="hideTip(event, 'fs2', 20)" onmouseover="showTip(event, 'fs2', 20)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 21)" onmouseover="showTip(event, 'fs3', 21)" class="i">Async</span> (<span class="n">1.0</span><span class="o">.</span><span class="n">168</span>) <span class="o">-</span> <span class="o">&gt;</span><span class="o">=</span> <span class="i">net40</span> <span class="o">&lt;</span> <span class="i">net45</span>
+      <span onmouseout="hideTip(event, 'fs2', 22)" onmouseover="showTip(event, 'fs2', 22)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span> (<span class="o">&gt;</span><span class="o">=</span> <span class="n">1.1</span><span class="o">.</span><span class="n">8</span>)
+    <span onmouseout="hideTip(event, 'fs2', 23)" onmouseover="showTip(event, 'fs2', 23)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span><span class="o">.</span><span class="i">Build</span> (<span class="n">1.0</span><span class="o">.</span><span class="n">21</span>)
     <span class="i">Newtonsoft</span><span class="o">.</span><span class="i">Json</span> (<span class="n">6.0</span><span class="o">.</span><span class="n">8</span>)
     <span class="i">NUnit</span> (<span class="n">3.0</span><span class="o">.</span><span class="n">0</span><span class="o">-</span><span class="i">alpha</span><span class="o">-</span><span class="n">4</span>)
-      <span onmouseout="hideTip(event, 'fs1', 7)" onmouseover="showTip(event, 'fs1', 7)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 8)" onmouseover="showTip(event, 'fs2', 8)" class="i">Async</span> (<span class="o">&gt;</span><span class="o">=</span> <span class="n">1.0</span><span class="o">.</span><span class="n">165</span>) <span class="o">-</span> <span class="o">&gt;</span><span class="o">=</span> <span class="i">net40</span> <span class="o">&lt;</span> <span class="i">net45</span>
+      <span onmouseout="hideTip(event, 'fs2', 24)" onmouseover="showTip(event, 'fs2', 24)" class="i">Microsoft</span><span class="o">.</span><span class="i">Bcl</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 25)" onmouseover="showTip(event, 'fs3', 25)" class="i">Async</span> (<span class="o">&gt;</span><span class="o">=</span> <span class="n">1.0</span><span class="o">.</span><span class="n">165</span>) <span class="o">-</span> <span class="o">&gt;</span><span class="o">=</span> <span class="i">net40</span> <span class="o">&lt;</span> <span class="i">net45</span>
     <span class="i">UnionArgParser</span> (<span class="n">0.8</span><span class="o">.</span><span class="n">2</span>)
 </code></pre></td>
 </tr>
@@ -835,14 +937,15 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>paket.references</h3>
 
 <ul>
-<li>Specifies which dependencies are used in a project</li>
-<li>Compareable to <code>packages.config</code></li>
+<li>Specifies which dependencies are used in a given project</li>
+<li>Compareable to <code>packages.config</code>, but without versions</li>
 <li>Only direct dependencies need to be listed</li>
+<li>Manually editable</li>
 </ul>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
@@ -858,8 +961,6 @@
 
 </section>
 
-</section>
-
 <section >
 
 <h3>Installing packages</h3>
@@ -872,9 +973,9 @@
 </table>
 
 <ul>
-<li>Computes package resultion for <code>paket.lock</code></li>
+<li>Computes <code>paket.lock</code> based on <code>paket.dependencies</code></li>
 <li>Restores all direct and transitive dependencies</li>
-<li>Processes all projects and adds references</li>
+<li>Processes all projects and adds references to the libraries</li>
 </ul>
 
 </section>
@@ -891,11 +992,11 @@
 </table>
 
 <ul>
-<li>Lists all dependencies that have newer versions:</li>
+<li>Lists all dependencies that have newer versions available:</li>
 </ul>
 
 <br /><br />
-<img style="border: none" src="images/paket-outdated.png" alt="Paket outdated" /> 
+<img style="border: none" src="images/paket-outdated.png" alt="Paket outdated" />
 
 </section>
 
@@ -911,7 +1012,8 @@
 </table>
 
 <ul>
-<li>Recomputes <code>paket.lock</code></li>
+<li>Recomputes <code>paket.lock</code> based on <code>paket.dependencies</code></li>
+<li>Updates all versions to the latest</li>
 <li>Runs <code>paket install</code></li>
 </ul>
 
@@ -962,6 +1064,39 @@
 
 <section >
 
+<h3>Simplify dependencies</h3>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="o">$</span> <span class="i">paket</span> <span class="i">simplify</span>
+</code></pre></td>
+</tr>
+</table>
+
+<ul>
+<li>Computes transitive dependencies from <code>paket.lock</code> file
+<ul>
+<li>Removes these from <code>paket.dependencies</code></li>
+<li>Removes these <code>paket.references</code></li>
+</ul></li>
+<li>Especially useful after conversion from NuGet (<a href="http://fsprojects.github.io/Paket/paket-simplify.html#Sample">Sample</a>)</li>
+</ul>
+
+</section>
+
+<section >
+
+<h3>Bootstrapping</h3>
+
+<ul>
+<li>Don't commit <code>paket.exe</code> to your repository</li>
+<li>Bootstrapper is available for <a href="https://github.com/fsprojects/Paket/releases/latest">download</a></li>
+<li>Bootstrapper allows to download latest <code>paket.exe</code></li>
+<li>Can be used for CI build or from inside Visual Studio</li>
+</ul>
+
+</section>
+
 <section >
 
 <h3>Source code dependencies</h3>
@@ -978,11 +1113,15 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
-<h3>GitHub dependencies</h3>
+<h3>Source code dependencies</h3>
 
-<p>In  <code>paket.dependencies</code>:</p>
+<h4>GitHub sample (1)</h4>
+
+<ul>
+<li>Add dependency to the <code>paket.dependencies</code> file</li>
+</ul>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
@@ -991,7 +1130,9 @@
 </tr>
 </table>
 
-<p>In <code>paket.references</code>:</p>
+<ul>
+<li>Also add a file reference to a <code>paket.references</code> file</li>
+</ul>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
@@ -1002,11 +1143,15 @@
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
-<h3>GitHub dependencies</h3>
+<h3>Source code dependencies</h3>
 
-<p><code>paket install</code> adds a new section to <code>paket.lock</code>:</p>
+<h4>GitHub sample (2)</h4>
+
+<ul>
+<li><code>paket install</code> will add a new section to <code>paket.lock</code>:</li>
+</ul>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
@@ -1021,65 +1166,87 @@
 </tr>
 </table>
 
-<p>It will also add a reference to the project:</p>
+<ul>
+<li><code>paket install</code> will also add a reference to the project:</li>
+</ul>
 
+<br /><br />
 <img style="border: none" src="images/github_ref_default_link.png" alt="Source reference" />
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
-<h3>Type Provider definition</h3>
+<h3>Source code dependencies</h3>
+
+<h4>Use case - "Type Provider definition"</h4>
 
 <ul>
-<li>F# Type Providers need a couple of helper files</li>
+<li>For F# Type Providers you need a couple of helper files</li>
 <li>It was painful to keep these up-to-date</li>
-<li>Reference StarterPack in <code>paket.dependencies</code>:</li>
+<li>Reference F# Type Provider files in <code>paket.dependencies</code>:</li>
 </ul>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip"><code lang="batch">github fsprojects/FSharp.TypeProviders.StarterPack src/ProvidedTypes.fsi
-github fsprojects/FSharp.TypeProviders.StarterPack src/ProvidedTypes.fs
-github fsprojects/FSharp.TypeProviders.StarterPack src/DebugProvidedTypes.fs
-</code></pre></td></tr></table>
-
-</section>
-
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
-
-<h3>Type Provider definition</h3>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">github</span> <span class="i">fsprojects</span><span class="o">/</span><span onmouseout="hideTip(event, 'fs4', 26)" onmouseover="showTip(event, 'fs4', 26)" class="i">FSharp</span><span class="o">.</span><span class="i">TypeProviders</span><span class="o">.</span><span class="i">StarterPack</span> <span class="i">src</span><span class="o">/</span><span class="i">ProvidedTypes</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 27)" onmouseover="showTip(event, 'fs5', 27)" class="i">fsi</span>
+<span class="i">github</span> <span class="i">fsprojects</span><span class="o">/</span><span onmouseout="hideTip(event, 'fs4', 28)" onmouseover="showTip(event, 'fs4', 28)" class="i">FSharp</span><span class="o">.</span><span class="i">TypeProviders</span><span class="o">.</span><span class="i">StarterPack</span> <span class="i">src</span><span class="o">/</span><span class="i">ProvidedTypes</span><span class="o">.</span><span class="i">fs</span>
+<span class="i">github</span> <span class="i">fsprojects</span><span class="o">/</span><span onmouseout="hideTip(event, 'fs4', 29)" onmouseover="showTip(event, 'fs4', 29)" class="i">FSharp</span><span class="o">.</span><span class="i">TypeProviders</span><span class="o">.</span><span class="i">StarterPack</span> <span class="i">src</span><span class="o">/</span><span class="i">DebugProvidedTypes</span><span class="o">.</span><span class="i">fs</span>
+</code></pre></td>
+</tr>
+</table>
 
 <ul>
-<li>In the Type Providers's <code>paket.references</code>:</li>
+<li>Add the files to the Type Providers's <code>paket.references</code>:</li>
 </ul>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">File</span><span class="o">:</span><span class="i">ProvidedTypes</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 9)" onmouseover="showTip(event, 'fs3', 9)" class="i">fsi</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">File</span><span class="o">:</span><span class="i">ProvidedTypes</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 30)" onmouseover="showTip(event, 'fs5', 30)" class="i">fsi</span>
 <span class="i">File</span><span class="o">:</span><span class="i">ProvidedTypes</span><span class="o">.</span><span class="i">fs</span>
-<span class="i">File</span><span class="o">:</span><span class="i">DebugProvidedTypes</span><span class="o">.</span><span class="i">fs</span> 
+<span class="i">File</span><span class="o">:</span><span class="i">DebugProvidedTypes</span><span class="o">.</span><span class="i">fs</span>
 </code></pre></td>
 </tr>
 </table>
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
-<h3>Type Provider definition</h3>
+<h3>Getting help</h3>
 
-<img src="images/rtypeprovider.png" alt="R Type Provider" /> 
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="o">$</span> <span class="i">paket</span> [<span class="i">command</span>] <span class="o">--</span><span class="i">help</span>
+</code></pre></td>
+</tr>
+</table>
 
-</section>
+<ul>
+<li>Visit the <a href="http://fsprojects.github.io/Paket/">online documentation</a></li>
+<li>Create a <a href="https://github.com/fsprojects/Paket/issues">GitHub issue</a></li>
+<li>Follow <a href="https://twitter.com/PaketManager">PaketManager</a> on Twitter</li>
+</ul>
 
 </section>
 
 <section >
+
+<h3>Paket.VisualStudio</h3>
+
+<ul>
+<li>Alpha version of <a href="https://github.com/hmemcpy/Paket.VisualStudio">VisualStudio plugin</a></li>
+<li>Takes contributions</li>
+</ul>
+
+<br /><br />
+<img style="border: none" src="images/Paket.VisualStudio.png" alt="Paket.VisualStudio" />
+
+</section>
 
 <section >
 
@@ -1092,11 +1259,11 @@ github fsprojects/FSharp.TypeProviders.StarterPack src/DebugProvidedTypes.fs
 </ul>
 
 <br /> <br />
-<img src="images/projectscaffold-logo.png" alt="ProjectScaffold" /> 
+<img src="images/projectscaffold-logo.png" alt="ProjectScaffold" />
 
 </section>
 
-<section author="Steffen Forkmann" description="Beautiful builds with F#" theme="black" title="FAKE - F# Make" transition="default">
+<section >
 
 <h3>ProjectScaffold</h3>
 
@@ -1112,14 +1279,13 @@ github fsprojects/FSharp.TypeProviders.StarterPack src/DebugProvidedTypes.fs
 
 </section>
 
-</section>
-
 <section >
 
 <h3>Thank you</h3>
 
 <ul>
 <li>Take a look at <a href="https://github.com/fsharp/FAKE">https://github.com/fsharp/FAKE</a></li>
+<li>Take a look at <a href="https://github.com/fsprojects/Paket">https://github.com/fsprojects/Paket</a></li>
 <li>We take contributions!</li>
 <li>Slides are MIT licensed and made using <a href="http://fsprojects.github.io/FsReveal/">FsReveal</a></li>
 <li>Send corrections to <a href="https://github.com/forki/FAKE.Intro">https://github.com/forki/FAKE.Intro</a></li>
