@@ -1,4 +1,4 @@
-- title : FAKE - F# Make
+- title : FAKE and Paket
 - description : Beautiful builds with F#
 - author : Steffen Forkmann
 - theme : black
