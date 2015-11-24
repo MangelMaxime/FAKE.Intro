@@ -69,6 +69,12 @@ Steffen Forkmann
 
 ### Why should I use FAKE?
 
+<img style="border: none" src="images/hockeystick.png" alt="FAKE hockey stick" />
+
+***
+
+### Why should I use FAKE?
+
 <img style="border: none" src="images/Docs.png" alt="FAKE documentation" />
 
 ***
