@@ -729,10 +729,19 @@ or
 
 ### Paket.Atom
 
--  Availabe in [Atom's plugin manager](https://atom.io/packages/paket)
+-  Available in [Atom's plugin manager](https://atom.io/packages/paket)
 
 <br />
 <img style="border: none" src="images/paket-add-atom.gif" alt="Paket.Atom" />
+
+***
+
+### Paket.VSCode
+
+-  Available in [VSCode's plugin manager](https://code.visualstudio.com/docs/editor/extension-gallery)
+
+<br />
+<img style="border: none" src="images/paket-vscode.gif" alt="Paket.VSCode" />
 
 ***
 
