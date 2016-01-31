@@ -493,12 +493,13 @@ or
 - Manually editable (or via paket.exe commands)
 
 
-     source https://nuget.org/api/v2
+    [lang=paket]
+    source https://nuget.org/api/v2
 
-     nuget Newtonsoft.Json         // any version
-     nuget UnionArgParser >= 0.7   // x >= 0.7
-     nuget log4net ~> 1.2          // 1.2 <= x < 2
-     nuget NUnit prerelease        // any version incl. prereleases
+    nuget Newtonsoft.Json         // any version
+    nuget UnionArgParser >= 0.7   // x >= 0.7
+    nuget log4net ~> 1.2          // 1.2 <= x < 2
+    nuget NUnit prerelease        // any version incl. prereleases
 
 
 ***
@@ -510,6 +511,7 @@ or
 - Automatically computed from `paket.dependencies`:
 
 
+    [lang=paket]
     NUGET
       remote: https://nuget.org/api/v2
       specs:
@@ -534,6 +536,7 @@ or
 - Manually editable
 
 
+    [lang=paket]
     Newtonsoft.Json
     UnionArgParser
     NUnit
@@ -646,11 +649,13 @@ or
 - Add dependency to the `paket.dependencies` file
 
 
+    [lang=paket]
     github forki/FsUnit FsUnit.fs
 
 - Also add a file reference to a `paket.references` file
 
 
+    [lang=paket]
     File:FsUnit.fs
 
 ***
@@ -661,6 +666,7 @@ or
 - `paket install` will add a new section to `paket.lock`:
 
 
+    [lang=paket]
     GITHUB
       remote: forki/FsUnit
       specs:
@@ -681,13 +687,15 @@ or
 - Reference Type Provider files in `paket.dependencies`:
 
 
+    [lang=paket]
     github fsprojects/FSharp.TypeProviders.StarterPack src/ProvidedTypes.fsi
     github fsprojects/FSharp.TypeProviders.StarterPack src/ProvidedTypes.fs
     github fsprojects/FSharp.TypeProviders.StarterPack src/DebugProvidedTypes.fs
 
-- Add the files to the Type Providers's `paket.references`:
+- Add the files to the Type Provider's `paket.references`:
 
 
+    [lang=paket]
     File:ProvidedTypes.fsi
     File:ProvidedTypes.fs
     File:DebugProvidedTypes.fs
@@ -700,6 +708,7 @@ or
 - enable easier conflict resolution
 
 
+    [lang=paket]
     source https://nuget.org/api/v2
     
     nuget Newtonsoft.Json    
@@ -720,6 +729,7 @@ or
 ### Dependency Groups (paket.lock)
 
 
+    [lang=paket]
     NUGET
       remote: https://nuget.org/api/v2
       specs:
