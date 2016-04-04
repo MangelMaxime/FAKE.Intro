@@ -704,8 +704,8 @@ or
 
 ### Dependency Groups
 
-- allow for better organization of dependencies
-- enable easier conflict resolution
+- Allow for better organization of dependencies
+- Enable easier conflict resolution
 
 
     [lang=paket]
