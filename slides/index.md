@@ -23,7 +23,7 @@ Steffen Forkmann
 
 ### What is FAKE?
 
-- Build tool for .NET and mono
+- Build tool for .NET, .NET core and mono
 - Plays well with existing ecosystem
 - Simple domain-specific language integrated in F#
 
@@ -41,17 +41,19 @@ Steffen Forkmann
 - AlbaCore (Rake)
 - BauBuild, Cake (Roslyn)
 
-***
-
-### Why should I use FAKE?
-
-![Over 120 commiters in March](images/Commiters.png)
 
 ***
 
 ### Why should I use FAKE?
 
-![Over 137 commiters in April](images/Commiters2.png)
+![Over 137 commiters in April 2016](images/Commiters2.png)
+
+
+***
+
+### Why should I use FAKE?
+
+![Over 265 commiters in June 2017](images/Commiters3.png)
 
 ***
 
