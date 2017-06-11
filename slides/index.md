@@ -46,7 +46,7 @@ Steffen Forkmann
 
 ### Why should I use FAKE?
 
-![Over 137 commiters in April 2016](images/Commiters2.png)
+![Over 137 commiters in April 2015](images/Commiters2.png)
 
 
 ***
@@ -59,19 +59,20 @@ Steffen Forkmann
 
 ### Why should I use FAKE?
 
-![Over 135000 downloads in March](images/Nuget.png)
+![Over 150000 downloads in April 2015](images/Nuget2.png)
 
-***
-
-### Why should I use FAKE?
-
-![Over 150000 downloads in April](images/Nuget2.png)
 
 ***
 
 ### Why should I use FAKE?
 
 <img style="border: none" src="images/hockeystick.png" alt="FAKE hockey stick" />
+
+***
+
+### Why should I use FAKE?
+
+![Over 900k downloads in June 2017](images/Nuget3.png)
 
 ***
 
@@ -89,6 +90,7 @@ Steffen Forkmann
 * Deedle (by BlueMountainCapital)
 * CHECK24 Vergleichsportal GmbH
 * Olo
+* jet.com
 * ...
 
 ***
@@ -98,7 +100,7 @@ Steffen Forkmann
 * FSharp.Compiler.Service
 * FSharp.Data
 * FsCheck
-* VFPT
+* Fable
 * Paket
 * Akka.net
 * NSubstitute
@@ -390,8 +392,6 @@ or
 - Integrated in Visual Studio and Xamarin Studio
 - [nuget.org](https://www.nuget.org/) is etablished package feed
 
-<br /><br />
-<img style="border: none" src="images/nuget3.png" alt="NuGet logo" />
 
 ***
 
@@ -554,6 +554,7 @@ or
 - Restores all direct and transitive dependencies
 - Processes all projects and adds references to the libraries
 
+
 ***
 
 ### Checking for updates
@@ -565,6 +566,18 @@ or
 
 <br /><br />
 <img style="border: none" src="images/paket-outdated.png" alt="Paket outdated" />
+
+***
+
+### Why o why?
+
+
+    $ paket why nuget [PACKAGENAME]
+
+- Shows why a package was installed:
+
+<br /><br />
+<img style="border: none" src="images/paket-why.png" alt="Paket why" />
 
 ***
 
@@ -630,8 +643,7 @@ or
 
 - Don't commit `paket.exe` to your repository
 - Bootstrapper is available for [download](https://github.com/fsprojects/Paket/releases/latest)
-- Bootstrapper allows to download latest `paket.exe`
-- Can be used for CI build or from inside Visual Studio
+- Rename `paket.bootstrapper.exe` to `paket.exe` and commit that one
 
 ***
 
@@ -752,7 +764,19 @@ or
       specs:
         NUnit (2.6.4)
         NUnit.Runners (2.6.4)
-        
+
+
+***
+
+### .NET Core
+
+
+    $ dotnet restore
+
+- Paket hooks into dotnet cli
+- Most things work like vanilla .NET Core
+- BUT: with paket files / philosophy
+
 ***
 
 ### Getting help
